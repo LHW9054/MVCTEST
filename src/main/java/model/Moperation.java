@@ -26,7 +26,22 @@ public class Moperation {
 	        if (rs.next()) {
 	            String dbPassword = rs.getString("userpw");
 
-	            if (dbPassword.equals(userpw)) {
+	            boolean ok;
+	            if (utils.PasswordUtil.isLegacyPlain(dbPassword)) {
+	                // 예전에 평문으로 저장된 계정: 일치하면 이번 로그인 때 해시로 바꿔 저장
+	                ok = dbPassword.equals(userpw);
+	                if (ok) {
+	                    try (PreparedStatement up = conn.prepareStatement("UPDATE user_table SET userpw = ? WHERE userid = ?")) {
+	                        up.setString(1, utils.PasswordUtil.hash(userpw));
+	                        up.setString(2, userId);
+	                        up.executeUpdate();
+	                    }
+	                }
+	            } else {
+	                ok = utils.PasswordUtil.matches(userpw, dbPassword);
+	            }
+
+	            if (ok) {
 	                // ✅ 장바구니 초기화
 	                Cart cart = new Cart(userId, new ArrayList<>());
 	                session.setAttribute("cart", cart);
@@ -260,13 +275,12 @@ public class Moperation {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, userId);
-            stmt.setString(2, userpw);
+            stmt.setString(2, utils.PasswordUtil.hash(userpw)); // 평문 대신 해시 저장
             stmt.setString(3, username);
             stmt.setString(4, email);
             stmt.setString(5, phone);
             
             System.out.println("userId = " + userId);
-            System.out.println("userpw = " + userpw);
             System.out.println("username = " + username);
             System.out.println("email = " + email);
             System.out.println("phone = " + phone);

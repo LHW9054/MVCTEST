@@ -24,7 +24,6 @@ public class LoginServlet extends HttpServlet {
 
         // 입력된 사용자 아이디와 비밀번호 출력
         System.out.println("LoginServlet - 입력된 userId: " + userId);
-        System.out.println("LoginServlet - 입력된 userpw: " + userpw);
 
         // 로그인 처리
         HttpSession session = request.getSession();    // セッションオブジェクト取得
