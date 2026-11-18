@@ -1,0 +1,3 @@
+# db.properties 로 복사한 뒤 값을 채우세요
+db.user=
+db.password=

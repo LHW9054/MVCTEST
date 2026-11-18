@@ -1,0 +1,417 @@
+body {
+    font-family: "BIZ UDPゴシック";
+    background-image: url('./resource/image/barca.jpg');  
+    background-size: 100%;
+    background-position: center center; /* 중앙 정렬 */
+    background-repeat: no-repeat;
+	background-color: #1a245f; /* 부족한 부분을 이 색으로 채움 */
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    margin: 0;
+	overflow-x: hidden;
+}
+/*//품명//////////////////////////////////////////////////////////////////////*/
+
+.product-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .product-card {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 10px;
+        width: 100px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+	.product-img {
+	    width: 100px;      /* 너비를 카드에 맞춤 */
+	    height: 200px;    /* 원하는 고정 높이 설정 (필요에 따라 조정) */
+	    object-fit: cover; /* 비율에 맞게 이미지를 잘라서 채우기 */
+	    border-radius: 10px; /* 이미지의 모서리를 둥글게 */
+	}
+
+    .product-info {
+        margin-top: 10px;
+    }
+
+	.select-btn {
+	    width: 100%; /* 버튼의 너비를 카드의 너비에 맞춤 */
+	    height: 40px; /* 버튼의 높이를 일정하게 설정 (원하는 높이로 조정 가능) */
+	    background: #007BFF;
+	    color: white;
+	    border: none;
+	    padding: 0; /* 패딩 제거 */
+	    border-radius: 5px;
+	    cursor: pointer;
+		font-size: 20px;
+	}
+
+	.select-btn:hover {
+	    background: rgb(255, 0, 0);
+	}
+
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+
+/* 헤더 스타일 */
+.header-container {
+    display: flex;
+/*    justify-content: space-between;*/
+    align-items: center;
+	height: 50px;
+	padding: 10px 20px;
+    background-color: #f0f8ff;
+}
+
+/* 왼쪽: 상품 선택 링크 */
+.header-left {
+    flex: 1;
+    text-align: left;
+}
+
+/* 가운데: 상점 이름 */
+.header-center {
+    text-align: center;
+    flex: 2;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue; /* 기본 색상: 파란색 */
+    transition: color 0.5s ease-in-out; /* 색상이 서서히 변경됨 */
+}
+
+/* 마우스를 올렸을 때 */
+.header-center:hover {
+    color: red; /* 마우스를 올리면 빨간색으로 변경 */
+}
+
+/* 오른쪽: 로그아웃 */
+.header-right {
+    text-align: right;
+    flex: 1;
+}
+
+.header-right span {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.header-right a {
+    color: #FF6347;
+    text-decoration: none;
+}
+
+.header-right a:hover {
+    color: #B22222;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+
+/* 상품 리스트 스타일 */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;  /* 상품들이 여러 줄에 배치될 수 있게 */
+    gap: 20px;        /* 상품 간격 */
+    justify-content: space-around;  /* 상품들을 양옆으로 고르게 배치 */
+}
+
+/* 상품 항목 스타일 */
+.product-item {
+    width: 22%;  /* 한 줄에 4개씩 배치 (여유 공간을 두기 위해 22% 설정) */
+    border: 1px solid #ddd;  /* 테두리 */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* 부드러운 그림자 */
+}
+
+/* 상품 제목 스타일 */
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* 상품 가격 스타일 */
+.product-item p {
+    font-size: 16px;
+    color: #888;
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.pagination button:hover {
+    background-color: #45a049;
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+
+/* 기존 스타일을 유지한 채, 폼을 중앙에 배치하고 추가 스타일링 */
+.focus_mid {
+    width: 350px;
+    padding: 30px;
+    margin: auto auto;  /* 화면 중앙 배치 */
+    background-color: rgb(255, 255, 255);  /* 폼 배경색 */
+    border-radius: 15px;  /* 폼의 둥근 모서리 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 100);  /* 그림자 효과 */
+    text-align: center;
+}
+
+
+/* 기존 텍스트 필드 및 패스워드 필드 스타일 */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;  /* 전체 너비 사용 */
+    padding: 10px;
+    margin: 10px 0;  /* 위/아래 마진 */
+    border: 1px solid #ccc;  /* 테두리 색 */
+    border-radius: 8px;  /* 둥근 모서리 */
+    font-size: 16px;
+    box-sizing: border-box;  /* 패딩과 테두리를 포함한 크기 */
+}
+
+input[type="submit"], .button {
+    background-color: rgb(0, 0, 255);  /* 기본 배경색 */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+/* 버튼에 마우스를 올렸을 때 */
+input[type="submit"]:hover, .button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+/* 레이블 스타일 */
+label {
+    font-size: 18px;
+    margin-right: 10px;  /* 오른쪽 마진 */
+    display: inline-block;  /* 레이블과 입력 필드를 같은 라인에 배치 */
+    text-align: left;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* 여러 줄로 쌓일 수 있도록 설정 */
+    gap: 10px; /* 카드 사이의 간격 설정 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    max-width: 1200px; /* 최대 너비 설정 (필요에 따라 조정) */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px; /* 카드의 너비 조정 (필요에 따라 조정) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    .product-img {
+        width: 100%;
+        height: auto;
+    }
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+	
+	.footer-container {
+	    width: 100%;
+	    background: #333; /* 배경색 설정 */
+	    color: white; /* 글자색 설정 */
+	    text-align: center; /* 가운데 정렬 */
+	    padding: 15px 0; /* 위아래 패딩 설정 */
+	    position: relative; /* 상대적으로 위치 설정 */
+	}
+
+	.footer-container p {
+	    margin: 0; /* 기본 마진 제거 */
+	    font-size: 16px; /* 글자 크기 설정 */
+	}
+	
+/*/////////////////////////////////////////////////////////////////////////////////*/
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; /* 중앙 정렬 */
+    width: 80%; /* 폭 조정 */
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색 투명도 추가 */
+    border-radius: 15px; /* 둥근 모서리 */
+    padding: 20px; /* 패딩 추가 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.cart-items {
+    display: flex;
+    flex-wrap: wrap; /* 상품들이 여러 줄로 나누어질 수 있게 */
+    justify-content: space-between;
+    width: 100%; /* 전체 너비 사용 */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 48%; /* 두 개씩 표시하기 위해 48%로 설정 */
+    max-width: 300px; /* 최대 너비 설정 */
+    border: 1px solid #ccc; /* 테두리 추가 */
+    border-radius: 8px; /* 둥근 모서리 */
+    padding: 15px; /* 패딩 추가 */
+    margin-bottom: 10px; /* 상품 사이의 간격 */
+    background-color: rgba(255, 255, 255, 0.9); /* 배경색 추가 */
+    transition: height 0.3s; /* 높이 변경 애니메이션 추가 */
+}
+
+/* 추가된 CSS */
+.cart-items .cart-item {
+    flex: 0 0 48%; /* 각 항목의 너비를 48%로 설정하여 두 개씩 배치 */
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+}
+
+.cart-price {
+    font-size: 16px; /* 가격 글씨 크기 */
+    color: #333; /* 가격 글씨 색상 */
+}
+
+.empty-cart {
+	text-align: center;
+}
+
+.remove-btn {
+    background-color: #FF6347; /* 삭제 버튼 배경색 */
+    color: white; /* 삭제 버튼 텍스트 색상 */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #FF4500; /* 삭제 버튼 마우스 오버 시 색상 변경 */
+}
+
+.total {
+    margin-top: 20px; /* 총 금액 위쪽 여백 */
+    font-weight: bold; /* 굵은 글씨 */
+    font-size: 18px; /* 글씨 크기 */
+}
+
+.checkout {
+    margin-top: 20px; /* 결제 버튼 위쪽 여백 */
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* 상단 여백 추가 */
+    position: sticky; /* 스크롤 시 위치 고정 */
+    bottom: 0; /* 하단 고정 */
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색 추가 */
+    border-radius: 15px; /* 둥근 모서리 */
+    padding: 20px; /* 패딩 추가 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.checkout-btn {
+    background-color: #007BFF; /* 결제 버튼 배경색 */
+    color: white; /* 결제 버튼 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #0056b3; /* 결제 버튼 마우스 오버 시 색상 변경 */
+}
+
+.checkout-btn {
+    background-color: #007BFF; /* 결제 버튼 배경색 */
+    color: white; /* 결제 버튼 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #0056b3; /* 결제 버튼 마우스 오버 시 색상 변경 */
+}
+
+.pay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; /* 중앙 정렬 */
+    width: 80%; /* 폭 조정 */
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색 투명도 추가 */
+    border-radius: 15px; /* 둥근 모서리 */
+    padding: 20px; /* 패딩 추가 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.pay-title {
+    font-size: 24px; /* 제목 글씨 크기 */
+    margin-bottom: 10px; /* 제목 아래 여백 */
+}
+
+.pay-list {
+    width: 100%; /* 테이블 너비 */
+    border-collapse: collapse; /* 테이블 경계선 통합 */
+}
+
+.pay-list th, .pay-list td {
+    padding: 8px; /* 셀 안의 여백 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    border: none; /* 테두리 없애기 */
+}
+
+.pay-list th {
+    background-color: #f2f2f2; /* 헤더 배경색 */
+    font-weight: bold; /* 굵은 글씨 */
+}
+
+/* 필요에 따라 td에 배경색 추가 */
+.pay-list td {
+    background-color: #fff; /* 데이터 셀 배경색 (필요시 변경 가능) */
+}
+/*///////////////////////////////////////////////////////////////////////////*/
+
+input, button {
+        height: 40px;
+    }
